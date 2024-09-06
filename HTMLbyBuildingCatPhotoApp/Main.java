@@ -31,17 +31,16 @@ public class Main {
 
         for (char c : str.toCharArray()) {
             if (Character.isLetter(c)) {
+                // Si es 'z' o 'Z', volver al inicio del alfabeto
                 if (c == 'z') {
                     transformed.append('a');
                 } else if (c == 'Z') {
                     transformed.append('A');
-                } else if (c == 'z' || c == 'Z') {
-                    transformed.append((char) (c - 25));
                 } else {
-                    transformed.append((char) (c + 1));
+                    transformed.append((char) (c + 1)); // Avanzar al siguiente carácter
                 }
             } else {
-                transformed.append(c);
+                transformed.append(c); // Mantener caracteres no alfabéticos
             }
         }
 
@@ -70,6 +69,7 @@ public class Main {
         StringBuilder result = new StringBuilder();
         
         for (char c : str.toCharArray()) {
+            // Si el carácter no está en la lista de charsToRemove, añadirlo al resultado
             if (charsToRemove.indexOf(Character.toLowerCase(c)) == -1) {
                 result.append(c);
             }
